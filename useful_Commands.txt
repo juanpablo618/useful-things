@@ -1,0 +1,1664 @@
+---------------------------------------------------------------------------------------------------------------------------
+kill port already in use (MAC):
+lsof -t -i tcp:8080 | xargs kill
+---------------------------------------------------------------------------------------------------------------------------
+see port already in use:
+lsof -i:8080 
+---------------------------------------------------------------------------------------------------------------------------
+git checkout - = para volver al branch anterior q estaba !!! muy bueno
+---------------------------------------------------------------------------------------------------------------------------
+
+Pushear o commitear sin verificar el código
+
+$ git commit . -m 'quick fix' --no-verify
+git commit . -m 'juan cuello, testing new change to trigger notification on return opened nodes' --no-verify
+---------------------------------------------------------------------------------------------------------------------------
+
+Buena página para resize:
+https://www.resizepixel.com/
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Ver a partir de un commits en q branch esta:
+
+git branch --contains <commit>
+
+
+
+Fuente: https://www.iteramos.com/pregunta/4373/encontrar-que-rama-salio-un-commit
+
+---------------------------------------------------------------------------------------------------------------------------
+Fuerza a maven a que descargue todo de nuevo:
+
+
+mvn clean install -U
+---------------------------------------------------------------------------------------------------------------------------
+
+Para generar metodos y cambios luego con graftql:
+
+
+go run github.com/99designs/gqlgen generate
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Agregar cosas al detalle de producto en wordpress + woocommerce:
+
+https://decodecms.com/modificar-elementos-en-pagina-de-producto-de-woocommerce/
+
+---------------------------------------------------------------------------------------------------------------------------
+
+mismo comando que tira jenkins:
+go test -v ./... -covermode=atomic -coverprofile=/tmp/report/coverage.out -coverpkg=./... -count=1  -race -timeout=30m
+
+---------------------------------------------------------------------------------------------------------------------------
+CHMOD RECURSIVO
+
+chmod -R o+x /my/path/here
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Cuando un repo tira error de groovy:
+Se puede borrar toda la carpeta .m2   y volver a descargar todas las librerías
+
+sacar un objeto por terminal con go, 1ro lo pasamos a json:
+
+
+fmt.Println("Hello World!")
+fmt.Println("  ")
+fmt.Println("  ")
+b, err := json.Marshal(source)
+if err != nil {
+  fmt.Println(err)
+  return
+}
+fmt.Println(string(b))
+
+fmt.Println("  ")
+fmt.Println("  ")
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Ver coverage en repos de go:
+
+
+go test -coverprofile="/tmp/go-cover.$$.tmp" -coverpkg=./... ./... && go tool cover -html="/tmp/go-cover.$$.tmp" && unlink "/tmp/go-cover.$$.tmp";
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Ver que esta choto de lint en go:
+
+irse a la carpeta src/api y dentro tirar:
+
+golangci-lint run ./...
+
+
+ver la version de xcode para mac:
+
+xcodebuild -version
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Git fetch = traer todos los branchs !!!
+
+-------------------------------------------------------------------------------------------------------------------------------
+Aplicar stash especifico:
+git stash apply stash@{n}
+-------------------------------------------------------------------------------------------------------------------------------
+sudo /opt/lampp/share/xampp-control-panel/xampp-control-panel.py
+-------------------------------------------------------------------------------------------------------------------------------
+stop apache2:
+
+The solution:
+In terminal: sudo /etc/init.d/apache2 stop
+-------------------------------------------------------------------------------------------------------------------------------
+id: blastoide
+pass:blastoideblastoide
+
+variable de git para que salga color de branch cd ho	s parado :
+
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+PS1='\[\e[1;31m\][\u@\h \W]\$\[\e[0m\] '
+
+ mucho mejor con color y todo :  
+
+export PS1='\u@\h:\W\[\033[33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$'
+
+./gradlew dependencies > /home/developer/work/dependencies.txt
+
+ sebastian@clickypass.com 
+-------------------------------------------------------------------------------------------------------------------------------
+para hacer pr, en github:
+
+http://astrofrog.github.io/blog/2013/04/10/how-to-conduct-a-full-code-review-on-github/
+-------------------------------------------------------------------------------------------------------------------------------
+chromium-browser --disable-web-security --user-data-dir
+
+idea-IC-163.12024.16
+
+para error de virtualbox: sudo /etc/init.d/vboxdrv setup
+
+You can use grep with ls command to list all the symbolic links present in the current directory.
+
+This will list all the links present in the current directory.
+
+ls -la /var/www/ | grep "\->
+
+run test in early bird
+
+npm run test -- --packages swa-app-air-early-bird --application 
+
+ver los tcservers corriendo:
+ps aux | grep tcserver
+
+revertir commit:
+
+Existe la posibilidad de eliminar el commit pero manteniendo las modificaciones que contiene ese commit en el área de trabajo. ¿Y por qué querríamos hacer esto? Por varios motivos, por ejemplo por que los tests funcionales del commit 600cc08 están incompletos, son incorrectos o he introducido algún bug en él.
+
+Partiendo de nuevo del mismos estado inicial de antes:
+
+Estado inicial del repositorio.ejecutaríamos el siguiente comando:
+
+				git reset HEAD~2
+
+rm -rf node_modules packages/*/node_modules
+npm install --ignore-scripts
+por si no les anda el npm install
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+para correr e2e
+
+./gradlew clean test -Dmetafilter="+product Air" -Dwebdriver.base.url=http://southwest.dev1.southwest.com/ aggregate
+
+
+otra forma de loguear con js (la que paso nacho laquiz):
+
+require('util').log(poplet)
+
+
+VER CAMBIOS EN GIT, en el intellij, 
+
+ir a VCS, 
+luego ir a "enable version control integration",
+
+presionar el botón para elegir tecnologia y luego elegir GIT.
+
+correr los E2E:
+
+
+./gradlew clean test -Dmetafilter="+product earlyBird"  -Dmode.live=true -Dwebdriver.base.url=http://southwest.dev1.southwest.com/ aggregate --info
+
+
+configurar jdk gradle y java_home:
+
+export JAVA_HOME='/opt/java/latest'
+export JDK_HOME='/opt/java/latest'
+export GRADLE_HOME='/opt/gradle/latest'
+export MAVEN3_HOME='/opt/maven3'
+export MAVEN_HOME=${MAVEN3_HOME}
+export PATH=$JAVA_HOME/bin:$PATH:/opt/gradle/latest/bin:${MAVEN_HOME}/bin
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+usando selectores con nth:
+.air-early-bird-flight-itinerary-container--details:nth-child(1) .flight-stops
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+comando para ver el orden de cuando fue actualizado (editado) de los folders, en los ambientes dev:
+
+ll -lart
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+http://local.swacorp.com:8080/early-bird/
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+rm data/.java/.userPrefs/prefs.dat.ar-it02939 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+comprobar puertos escuchando en linux:
+
+sudo lsof -i -P -n | grep LISTEN
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+chapi en dev 2: xldchannelapi08
+
+Remove .idea folder
+Remove all *.iml files
+Invalidate and restart
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+./gradlew clean test -Dmetafilter="juanCuello" -Dmode.live=true aggregate --info
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BORRAR USER PREF 
+
+/opt/dotcom/api/ancillary/management/1.0.0-SNAPSHOT/data/.java/.userPrefs/prefs.dat.ar-it02939
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mostrar proceso especifico corriendo:
+
+ ps aux | grep mountebank
+
+er | grep moutebank
+ps -ef mountebank
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+matar proceso:	
+
+kill -9 26905
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+url de cambio para stub:
+
+localhost:14031/v1/reservation-management/
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+url en ancillary:
+
+## Client Endpoint Urls
+
+#api-reservation-management
+client.endpoints-wapiAirReservationsEndpointUrl=http://localhost:14031/v1/reservation-management/
+
+#api-customers
+client.endpoints-wapiCustomersInformationEndpointUrl=http://localhost:7032/
+
+#api-ancillary-products
+client.endpoints-wapiAncillaryProductsEndpointUrl=http://localhost:14091/v1/ancillary-products/
+
+#api-content-delivery
+content.airport-caching-url=https://api-content-delivery-int.dev1.swacorp.com/v1/content-delivery/
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+con este comando se arregla cuando te tira el error ENOSP tratando de levantar la UI:
+
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+abrir wireshark
+
+wireshark
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+para cambiar el host:
+
+ sudo vi /etc/hosts
+
+para salir ESC luego :wq
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+sudo vi /etc/resolv.conf
+
+ip: 10.60.2.218
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+obtener los cambios locales en un archivo con git:
+
+git diff >> ~/Desktop/NOMBRE_DEL_ARCHIVO
+git diff >> ~/Desktop/EUGE_MODAL_DIFF
+
+
+git diff >> ~/Desktop/EUGE_MODAL_DIFF
+
+git diff >> ~/Desktop/STUBS_FOR_SWABIZ
+
+
+git diff >> ~/Desktop/MODAL_ALMOST_DONE_UI_APP
+
+>> ~/Desktop/settings-deprecated
+-------------------------------------------------------------------------------------------------------------------------------
+
+ventas@imset.com.ar
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ruta para levantar mountebank en ancillary
+
+~/work/api-ancillary-management/bin
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+comando para correr los isolations test en ancillary
+
+./gradlew clean deployStub isolationTest aggregate -x test
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ruta para inyectar los stubs de ancillary management:
+
+~/work/api-ancillary-management/src/main/environment/filesets/mountebank
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+para ver en que puerto está corriendo, en este ejemplo "tomcat"
+
+ps -ef | grep tomcat
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+en master:
+git pull --rebase
+en tu branch:
+git merge master
+
+si no tenés conflictos, que no deberías
+hacés después el "git push origin <tu_branch>" para actualizar el PR
+antes del push, probá de tirar el precommit 
+
+(ECOM-21280-v2)
+(ECOM-22094-POC)
+
+
+update my branch with the master:
+
+You have two options:
+
+The first is a merge, but this creates an extra commit for the merge.
+
+Checkout each branch:
+
+git checkout master
+
+git pull
+
+Then merge:
+
+git merge origin/master
+
+o git merge master
+
+y luego push
+
+git push origin WAPI-7341 
+
+Then push:
+
+git push origin b1
+Alternatively, you can do a rebase:
+
+git fetch
+git rebase origin/master
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Actualizar branch con el master:
+
+git fetch origin develop
+git merge FETCH_HEAD
+git flow feature publish
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+1) Matar al tomcat si es que está levantado:
+
+kill -9 $(lsof -t -i:14420)
+
+2) Remover todo lo que pueda generar la app de datos/configuraciones:
+
+rm -rf rundeck_tmp/ target/ build_tmp/dotcom-api-artifacts/* build/ history/ tcserver/* /opt/dotcom/api/ancillary/management/* tmp/
+
+3) Levantar la app y mountebank sin correr los isolation:
+
+./gradlew clean runLocalMountebank deployStub -x test
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+cat /opt/dotcom/api/ancillary/management/1.0.0-SNAPSHOT/data/.java/.userPrefs/prefs.dat.ar-VARIABLE | grep -i car
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+./gradlew clean runLocalMountebank deployStub -x test
+
+rm -rf rundeck_tmp/ target/ build_tmp/dotcom-api-artifacts/* build/ history/ tcserver/* /opt/dotcom/api/ancillary/management/* tmp/
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Algunos comandos, para la SPA, que les van a servir para actualizar los node modules de ui, common y enterprise, ya que hubo algunos cambios en la estructura.
+
+rm -rf packages/*/node_modules
+rm -rf node_modules
+npm cache clean
+npm i module-deps@3.9.1
+npm i
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+comando en git para saber si mi master local
+esta desactualizado 
+
+git status -uno
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+-Dserenity.take.screenshots="DISABLED"
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ ./gradlew clean test -Dmetafilter="+suite smoke" -Dserenity.take.screenshots="FOR_EACH_ACTION" -Dmode.live=true aggregate
+ ./gradlew clean test -Dmetafilter="+suite smoke" -Dserenity.take.screenshots="DISABLED" -Dmode.live=true aggregate
+ ./gradlew clean test -Dmetafilter="+suite checkwapis" -Dserenity.take.screenshots="DISABLED" -Dmode.live=true aggregate
+ ./gradlew clean test -Dmetafilter="+suite regression" -Dserenity.take.screenshots="DISABLED" -Dmode.live=true aggregate
+ ./gradlew clean test -Dmetafilter="+suite smoke2" -Dserenity.take.screenshots="DISABLED" -Dmode.live=true aggregate --info
+ ./gradlew clean test -Dmetafilter="+suite smoke2" -Dserenity.take.screenshots="FOR_FAILURES" -Dmode.live=true aggregate --info
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+serenity take screenshots:
+
+FOR_EACH_ACTION
+Saves a screenshot at every web element action (like click(), typeAndEnter(), type(), typeAndTab() etc.).
+
+BEFORE_AND_AFTER_EACH_STEP
+Saves a screeshot before and asfter every step.
+
+AFTER_EACH_STEP
+Saves a screenshot after every step
+
+FOR_FAILURES
+Saves screenshots only for failing steps. This can save disk space and speed up the tests a little. It is very useful for data-driven testing.
+
+DISABLED
+Doesn’t save screenshots for any steps.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+correr e2e viejos con mvn:
+mvn clean install -Pjbehave-story-run -Dmeta.filter="+suite airBooking" -DdomainToTest=https://southwest.dev2.southwest.com/
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+clonar repos ui:
+
+scp -r developer@172.26.97.51:/home/developer/work/swa-ui-app /home/developer/work/
+
+
+scp  developer@172.26.97.20:/home/developer/work/api-air-checkin/bin/performance/mountebank/mountebank.sh /tmp
+
+scp -r developer@172.26.97.51:/home/developer/work/swa-packages-common /home/developer/work/
+
+scp -r developer@172.26.97.51:/home/developer/work/swa-packages-enterprise /home/developer/work/
+
+scp -r developer@172.26.97.219:/home/developer/work/swa-ui-app/node_modules/react /home/developer/work/swa-ui-app/node_modules/react
+
+scp -r developer@172.26.97.179:/opt/ /home/developer/Desktop/
+
+scp -r x217692@xldwebapi72:/opt/tomcat/servers/dotcom_api_customers_1.2018.7015-A/logs/verbosegc.log /home/developer/work/
+
+
+
+scp -r x217692@xldwebapi231:/opt/tomcat/servers/dotcom_api_ancillary_products_1.19.0025-A/logs/verbosegc.log /home/developer/work/
+
+
+172.26.97.51
+172.26.97.190
+
+scp -r developer@172.26.97.51:/home/developer/work/swa-ui-app/node_modules /home/developer/work/swa-ui-app/node_modules
+scp -r developer@172.26.97.51:/home/developer/work/swa-packages-enterprise/node_modules /home/developer/work/swa-packages-enterprise/node_modules
+scp -r developer@172.26.97.51:/home/developer/work/swa-packages-common/node_modules /home/developer/work/swa-packages-common/node_modules
+
+
+
+scp  x217692@xlqlfs02:/opt/dotcom/CommerceService-QAB/19_5_8754/ais-commerce-service.log.xlqlfs02 /home/developer/work/
+
+scp rodrigo.cubillos@172.18.61.149:/home/developer/work/api-air-checkin/bin/performance/mountebank/mountebank.sh /tmp
+
+/home/developer/work/api-air-checkin/bin/performance/mountebank
+
+
+/home/magali.pacheco/Downloads/jdk
+
+172.26.97.139 Suborder.11
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+correr los e2e viejos:
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=http://localhost:8080/ -Dmeta.filter="airBooking2"
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev2.southwest.com/air/booking/ -Dmeta.filter="airBooking2"	
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev2.southwest.com/air/booking/ -Dmeta.filter="airBooking2"
+
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev2.southwest.com/ -DstoryFilter=Early_Bird_Mode_Live_Purchase_Using_PayPal_Vision
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Workaround to make npm works
+    rm -rf ~/.npm
+    rm -rf node_modules/ packages/*/node_modules
+    npm i --no-shrinkwrap
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+tool de yuyo para ver que esta deployado en cada ambiente:
+
+http://172.18.60.54:8080/
+
+-------------------------------------------------------------------------------------------------------------------------------
+agregar urls al hosts:
+
+sudo gedit /etc/hosts
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+/home/developer/shared/Vision/MA-certs/ClientKeys/DEV/
+
+./gradlew clean isolationTest --tests TestServicesforApiAncillary.shouldReturnBasicDiagnostics -Djavax.net.ssl.keyStore=certs/dotcom-api-dev-rootCA-keystore.jks -Djavax.net.ssl.keyStorePassword=password99 --stacktrace
+
+-------------------------------------------------------------------------------------------------------------------------------
+conectarse a un server:
+
+ssh -l x217692 xlpadm03
+
+puentiar a otro server es hacer lo mismo cambiando el server
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+terminar de configurar firefox en otra maquina:
+
+For the third option:
+
+Add the following to your ~/.profile or ~/.bashrc:
+
+export PATH="$PATH:/home/firefox"
+Use  which firefox or whereis firefox to get Firefox path.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Para guardar cambios con git locales y con un nombre lindo:
+
+git stash save WAPI-8585
+git stash save ECOM-22098
+
+git stash save ECOM-30305
+
+git stash save LEAPFROG-NULLPOINTER
+git stash save LEAPFROG-NULLPOINTER-Version2
+-------------------------------------------------------------------------------------------------------------------------------
+Para aplicar los cambios
+git stash list
+git stash apply stash@{POSICION} 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+resolver conflictos con la ide:
+
+ir y actualizar el master con: 
+ git pull
+pasarme al branch 
+ git fetch origin develop
+git merge FETCH_HEAD 
+
+en un archivo q tiene conflictos git -> resolve conflicts
+git commit
+git push origin HEAD
+
+WAPI-6843
+-------------------------------------------------------------------------------------------------------------------------------
+
+Team,
+
+A pedido del nico les paso estos parametros que deberían insertar al final de este file:
+
+/home/{userPC}/.bashrc
+
+export JAVA_HOME='/opt/java/latest'
+export JDK_HOME='/opt/java/latest'
+export GRADLE_HOME='/opt/gradle/latest'
+export MAVEN3_HOME='/opt/maven3'
+export MAVEN_HOME=${MAVEN3_HOME}
+export PATH=$JAVA_HOME/bin:$PATH:/opt/gradle/latest/bin:${MAVEN_HOME}/bin
+
+Si quieren cambiar su promt, busquen este if color_prompt y seteen todo esto:
+
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+   # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+   PS1='${debian_chroot:+($debian_chroot)}\[\033[1;36m\]\u@:\[\033[1;32m\]\w$(parse_git_branch)\$\[\033[0m\] '
+fi
+
+Al que no le ande que me pegue el grito.
+
+Saludos
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+jconsole -J-Djavax.rmi.ssl.client.enabledCipherSuites=TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA256 -J-Djavax.rmi.ssl.client.enabledProtocols=TLSv1.2
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+To find the word foo in the FILE(not a directory) bar :
+grep foo ~/Desktop/bar
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+limpiar cache de gradle de los proyectos:
+
+en la ruta:
+
+ ~/.gradle/caches/modules-2/files-2.1/com.swacorp.dotcom.api.clcs.generated$ 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+arreglar problemas de string en java con el ide:
+ y problema del jdk_home not defined yet
+
+https://stackoverflow.com/questions/31215452/intellij-idea-importing-gradle-project-getting-java-home-not-defined-yet
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+deploy de chapi y wapi
+
+ Chapi Ancillary Management 	
+
+1.13.0020-SNAPSHOT
+
+
+ ./rundeckOtherBulkhead.sh -u <xid> -v <Current> -e dev2-siloA -a stop -m ancillary-management
+
+ ./rundeckOtherBulkhead.sh -u <xid> -v <NewVersion> -e dev2-siloA -m ancillary-management
+
+
+ ./rundeckOtherBulkhead.sh -u x217692 -v 1.13.0020-SNAPSHOT -e dev9-siloA -a stop -m ancillary-management
+
+ ./rundeckOtherBulkhead.sh -u x217692 -v 1.13.0021-SNAPSHOT -e dev9-siloA -m ancillary-management
+
+
+WAPI api-reservation-management
+
+ ./rundeckAirSegmentation.sh -u <xid> -v <Current> -e dev2-siloA -a stop -m api-reservation-management
+
+ ./rundeckAirSegmentation.sh -u <xid> -v <NewVersion> -e dev2-siloA -m api-reservation-management
+
+WAPI api-funds-management
+
+ ./rundeckAirSegmentation.sh -u <xid> -v <Current> -e dev2-siloA -a stop -m api-funds-management
+
+ ./rundeckAirSegmentation.sh -u <xid> -v <NewVersion> -e dev2-siloA -m api-funds-management
+
+WAPI api-customers
+
+./rundeckApiCustomers.sh -u x217585 -v 1.21.0 -e dev3-siloA -a start -m api-customers
+
+./rundeckApiCustomers.sh -u x217585 -v ​1.2017.6835-SNAPSHOT -e dev3-siloA -m api-customers
+
+
+./rundeckApiCustomers.sh -u x217692 -v 1.2018.7161 -e dev2-siloA -a stop -m api-customers
+
+./rundeckApiCustomers.sh -u x217692 -v ​1.2018.7186-SNAPSHOT -e dev2-siloA -m api-customers
+
+
+"versionDeployed": "1.2018.6951-SNAPSHOT",
+
+./rundeckApiCustomers.sh -u x217585 -v 1.0.48-SNAPSHOT -e dev2-siloA -a start -m air-booking
+
+
+./rundeckApiCustomers.sh -u x217692 -v 1.0.60-SNAPSHOT -e dev2-siloA -a stop -m air-booking
+
+./rundeckApiCustomers.sh -u x217692 -v ​1.0.101-SNAPSHOT -e dev2-siloA -m api-customers
+
+
+./rundeckAirSegmentation.sh -u x217692 -v 1.1690.25237-SNAPSHOT -e dev9-siloA -a stop -m api-reservation-management
+
+./rundeckAirSegmentation.sh -u x217692 -v ​1.2019.25036-SNAPSHOT -e dev9-siloA -m api-reservation-management
+
+Hi, I will deploy 1.2019.25036-SNAPSHOT to api-reservation-management. let me know any concern thanks.
+
+./rundeckDcsSegmention.sh -u x217692 -v 2.26.0-SNAPSHOT -e dev9-siloA -a stop -m air-travel
+
+./rundeckDcsSegmention.sh -u x217692 -v 2.26.0-SNAPSHOT -e dev1-siloA -a  -m air-travel
+
+ ./rundeckAirBulkhead.sh -u x217692 -v 1.23.00101-SNAPSHOT  -e dev9-siloA -m air-misc
+
+1.22.0-ECOM-25303-SNAPSHOT
+-------------------------------------------------------------------------------------------------------------------------------
+
+para toglear en dev:
+
+jconsole -J-Djavax.rmi.ssl.client.enabledCipherSuites=TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA256 -J-Djavax.rmi.ssl.client.enabledProtocols=TLSv1.2
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+ grep --color 'POST-/v1/clcs-customer-profile-retrieval/customerpreferences/retrieve' metric-flow.xldwebapi72.log.* | grep '\-18:'
+
+grep --color 'placements' *.log | grep '\-18:'
+
+grep --color 'RetrievePointTransactionSummaryResponse}' metric-flow.xldwebapi72.log.* | grep '\-22:'
+
+grep --color ',700.,' metric-flow.xldwebapi72.log.* | grep '\-22:'
+
+https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
+
+grep --color ',clcs,' metric-flow.xldwebapi72.log | grep '\-15:'
+   
+grep --color '4bdb52e9-465e-46f4-b6c5-6cc88b12b4ed' *
+
+grep --color 'reservation-management/reservations/' *
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ver tamaño de los logs de una carpeta especifica:
+
+find -type f -name 'audit-clcs-mule.xldwebapi71.log' -exec du -ch {} + | grep total$
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+##############################################################################
+Cambiar registry
+##############################################################################
+
+npm config set registry=https://nexus-tools.swacorp.com/ECOM/repository/npm-group
+yarn config set registry https://nexus-tools.swacorp.com/ECOM/repository/npm-group
+yarn config set yarn-offline-mirror ~/yarn-offlinse
+
+npm config set strict-ssl false
+yarn config set strict-ssl false
+
+##############################################################################
+	REMOVE NODE MODULES
+############################################################################
+
+rm -rf node_modules/ packages/*/node_modules build/ && yarn i
+
+############################################################################
+
+	START CHROMIUM
+############################################################################
+
+
+chromium-browser --disable-web-security --user-data-dir
+
+############################################################################
+
+	LAUNCH SPA
+##############################################################################
+gulp --apps early-bird
+
+gulp --apps air-booking
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+revertir ultimo commit 
+
+git reset --hard #NRO 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+./clipasswordsdk GetPassword -p AppDescs.AppID=SWAApp-DOTCOM-Dev-Itest   -p Query="Folder=Root;Safe=AIM-DEV-ORA-DOTCOM;Object=Database-AIM Oracle-ECOMED.swacorp.com-ECOMA_DEV_USER"  -o PassProps.Address,Password
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+levantar jenkins local:
+
+developer@AR-IT02939:  ~/Downloads$ java -jar jenkins.war --httpPort=8080
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Buscar archivo verbosec en los servers:
+
+opt/tomcat/servers/VERSION/logs/verbosec
+
+drwxrwsr-x  3 swacat swacatinet 12288 Oct 16 06:33 1.2018.7015-SNAPSHOT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+scp -r x217692@xldwebapi72:/home/developer/work/api-customers/bin/load-testing/jmeter/logs/ptest-samples-20451.jtl /home/developer/Desktop/ptest-samples-20451.jtl
+
+scp -r x217692@xldwebapi72:/opt/dotcom/api/customers/1.2018.7015-SNAPSHOT/metric-flow.xldwebapi72.log /home/developer/Desktop/metric-flow.xldwebapi72.log
+
+scp -r x217692@xldwebapi72:/opt/tomcat/servers/dotcom_api_customers_1.2018.7015-A/logs/verbosegc.log /home/developer/Desktop/verbosegc.log
+
+scp -r x217692@xldwebapi231:/opt/tomcat/servers/dotcom_api_reservation_management_1.28.0-A/logs /home/developer/Desktop/verbosegc.log
+
+
+/home/developer/work/api-customers/bin/load-testing/jmeter/logs/ptest-samples-2384.jtl
+
+scp -r 
+
+scp -r developer@local.swacorp.com:/opt/webapps/ecom-local-a-ssl/conf/extra/lf/swa-rewrites.conf /home/developer/Desktop/swa-rewrites.conf
+
+scp -r developer@local.swacorp.com:/opt/webapps/swabiz-local-a-ssl/conf/extra/lf/swa-rewrites.conf /home/developer/Desktop/swa-rewrites-SWABIZ.conf
+
+scp  root@172.20.10.8:/mnt
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+buscar por id errores:
+
+grep 1539474526124 *.log.*
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+inspeccionar con lint la spa
+
+SCSS
+In order to check the scss run gulp lint-scss
+JS
+In order to check the js run gulp lint-common
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+yarn clean  = borra todos los node_modules 
+
+ && yarn i  = baja todos los node_modules
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+donde se ven los tests rotos en la UI:
+
+file:///home/developer/work/swa-packages-common/test-coverage/html/index.html
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para levantar la vpn con cookies de chrome:
+
+https://gist.github.com/darrenpmeyer/fa427b1ebdd8239bf665
+
+sudo openconnect --juniper --cookie="DSID=9ac018e610d664e41d2728fbc42ef451"  mydesktop.swacorp.com
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+correr los unit test en common:
+
+node --max_old_space_size=2048 node_modules/karma/bin/karma start
+
+yarn test swa-checkout --single-run --browsers PhantomJS
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para correr los E2E viejos meados:
+
+echo -e '\nexport PATH="/opt/firefox-33:$PATH:/opt/firefox-33"' >> ~/.bashrc
+
+mvn clean install -Pjbehave-story-run -DstoryFilter=Air_Booking_Multicity_MixPax_with_Travel_Funds
+
+mvn clean install -Pjbehave-story-run -DstoryFilter=Air_Booking_Anonymous_Multicity_UM_Form_Happy_Path
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Para correr los tests se puede hacer:
+
+npm test
+
+Si no funciona por problemas de memoria:
+node --max_old_space_size=2048 node_modules/karma/bin/karma start
+
+Todos los packages (no recarga):
+yarn ci-test
+
+(Este comando es el mismo que se usa al hacer push)
+
+Correr algun package en particular (no recarga):
+yarn test swa-checkout --single-run --browsers PhantomJS
+yarn test swa-customer --single-run --browsers PhantomJS
+yarn test swa-air --single-run --browsers PhantomJS
+yarn test swa-app-early-bird --single-run --browsers PhantomJS
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ejecutar todos los impostores en air-booking:
+correr todos los sh en una carpeta:
+
+find . -name "MB*.sh" -exec sh {} \;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para cuando hay que stubear json para jbehaves:
+
+tenes que validarle con https://jsonlint.com/ luego en https://freeformatter.com/ tenes que darle a JSON Format, Compact 1 line y luego JSON scape  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+correr los e2e viejos (mvn) apuntando a ambiente real:
+
+mvn clean install -Pjbehave-story-run -DstoryFilter=Air_Booking_Anonymous_Multicity_Add_EB_From_Modal -DdomainToTest=http://southwest.dev2.southwest.com
+
+
+mvn clean install -Pjbehave-story-run -DstoryFilter=Vision_8216_EB_DOM_Tire0withCompanion_AddEBtoBothPNR.story -DdomainToTest=http://southwest.qa3.southwest.com
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+cambiar comentario del commit:
+
+git commit --amend -m "your new message"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Para correr los tests se puede hacer:
+
+npm test
+
+Si no funciona por problemas de memoria:
+node --max_old_space_size=2048 node_modules/karma/bin/karma start
+
+Todos los packages (no recarga):
+yarn ci-test
+
+(Este comando es el mismo que se usa al hacer push)
+
+Correr algun package en particular (no recarga):
+yarn test swa-checkout --single-run --browsers PhantomJS
+yarn test swa-app-early-bird --single-run --browsers PhantomJS
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para stubear en los e2e:
+
+tenes que validarle con https://jsonlint.com/ luego en https://freeformatter.com/ tenes que darle a JSON Format, Compact 1 line y luego JSON scape  
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sudo apt-get update && sudo apt-get install yarn
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+run enthuware:
+
+./etsviewer.jar
+
+https://github.com/licira/ETS
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+https://code.visualstudio.com/docs/getstarted/tips-and-tricks
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+gulp lint-common --max-old-space-size=4096
+
+gulp lint-scss --max-old-space-size=4096
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Para evitar clonar los repo se puede solo modificar la dirección del remote, les paso lo que hice para api-customers:
+
+Revisar cual es la dirección actual, debería ser la de stash, deben correr:
+git remote -v
+
+Les va a salir lo siguiente
+origin	ssh://git@stash.swacorp.com:9090/wapi/api-customers.git (fetch)
+origin	ssh://git@stash.swacorp.com:9090/wapi/api-customers.git (push)
+
+Después actualizamos la nueva dirección(es la que se usa para clonar) con la de bitbucket, tienen que correr:
+git remote set-url origin ssh://git@stash1-tools.swacorp.com:7999/wapi/api-customers.git
+
+git remote set-url origin ssh://git@stash1-tools.swacorp.com:7999/wapi/api-air-checkin.git
+
+Verificamos que se modificó con 
+git remote -v
+
+Les va a salir lo siguiente
+origin	ssh://git@stash1-tools.swacorp.com:7999/wapi/api-customers.git (fetch)
+origin	ssh://git@stash1-tools.swacorp.com:7999/wapi/api-customers.git (push)
+
+Después prueben de hacer pull en el master, les va a pedir que confirmen el nuevo host
+
+
+Nicolas Zacarias (nicolas.zacarias@globant.com)
+origin	ssh://git@stash1-tools.swacorp.com:7999/dot/api-air-checkin.git (fetch)
+origin	ssh://git@stash1-tools.swacorp.com:7999/dot/api-air-checkin.git (push)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+record a gif:
+
+byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=800 out.gif
+
+byzanz-record --duration=15  out.gif
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Cambiar permisos de ssh 
+sudo ufw allow ssh
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+connect to vpn:
+
+sudo openconnect --juniper --cookie="DSID=<your DSID from cookie from your browser>"  mydesktop.swacorp.com
+sudo openconnect --juniper --cookie="DSID=6e35452a41f11497b96e143bc4846cfc"  mydesktop.swacorp.com
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+stop docker container 
+
+docker stop my_container
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+problema que no puede descargar un paquete nuevo de linux:
+
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+limpiar la cache de gradle, si da problemas de librerias:
+
+rm -rf $HOME/.gradle/caches/
+
+./gradlew build --refresh-dependencies
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+abrir archivo rapido con un nombre:
+
+gedit nombreDelArchivo
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ssh developer@local.swacorp.com
+cd ~/work/commerce-project && ./make.sh -FUCK97
+ 
+    ./make.sh -FUCK97
+
+ssh developer@local.swacorp.com
+cd ~/work/commerce-project/service && ./start.sh -r97
+	./start.sh -r97
+
+
+ssh developer@local.swacorp.com
+cd ~/work/commerce-project/web && ./start.sh
+	./start.sh
+
+
+jconsole localhost:9660
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sudo ethtool eth0
+netstat -r
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+contar la cantidad de ocurrencias de una palabra en un archivo "case sensitive"
+
+ grep -o -i apache dependencies.txt | wc -l
+
+
+ grep -o -i com.swacorp.dotcom:datetime-lib:1.0.0 dependencies.txt | wc -l
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+insensitive
+
+cat dependencies.txt | grep -i "Apache" |wc -llll
+cat dependencies.txt | grep -i "com.swacorp.dotcom:datetime-lib:1.0.0" |wc -l
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+grep reservation-management-rest-request-response.AR-IT02939.log -e 'ERROR' | tail -100
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Rodrigo Cubillos (Contractor) [09:48]
+Guys and Gals :
+About the deploy  of leapfrog is simple like un vision , below I am going to share the steps:
+1. Obtain Buid Info from Jenkins , that include see on console output of https://jenkins-tools.swacorp.com/ECOM/job/TRUNK_RUNDECK_DEPLOYMENT_INFO/
+the 4 important parameters are :
+02:17:16 buildnumber=74
+02:17:16 VersionContent=19.4.0-20190227.081242-72
+02:17:16 VersionService=19.4.0-20190227.081258-72
+02:17:16 VersionWebapp=19.4.0-20190227.081242-72
+for example
+this are requiered by the Rundeck Job
+2. execute RunDeck job for deploy (on this server http://xldadm01.swacorp.com:4440/rundeck/jobs)
+job ReleaseManagement/Controls/com/swacorp/dotcom
+using the output of step 1
+One extra information : the job TRUNK_RUNDECK_DEPLOYMENT_INFO mentioned in the step 1 is a sub job that run automatically when you run a Build you can match by time and confirm with the  buildnumber=74 showed in console match with you build number
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Comando buscar Archivo
+1
+Comandó: git log –oneline –name-status –diff-filter=D -- **/nomArchivo
+A continuación veamos la ejecución de ese comando.
+
+$ git log --oneline --name-status --diff-filter=D -- **/drupal-icon.png
+ 
+0d70ba9 bye drupalicon
+D       Pictures/drupal-icon.png
+Ya que encontramos el hash del commit (que en el ejemplo es 0d70ba9) y obtuvimos la ruta de nuestro archivo, vamos a recuperar nuestro archivo de la siguiente manera.
+
+1
+$ git checkout 0d70ba9^ Pictures/drupal-icon.png
+
+git checkout 2765c6d^  web/src/main/public/assets/styles/checkIn.css
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sudo umount /home/developer/commerce
+sudo rm -rf commerce
+mkdir commerce
+
+sudo umount /home/developer/optlxc
+sudo rm -rf optlxc
+mkdir optlxc 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ver el historial de comandos en la consola:
+history
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sqllite
+
+SELECT *
+  FROM TABLE
+ WHERE column LIKE '%cats%'
+
+sqlite3 padroncba.db
+
+SELECT *
+  FROM capital_old  
+ WHERE instr(domicilio, 'DNI-EA') > 0;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ UPDATE capital_old
+   ...> SET domicilio = replace(domicilio, 'P DE LA GASCA', 'Pedro de la Gasca') ;
+
+DNI-EB
+DNI-EC
+DNI-ED
+DNI 
+PA
+DNIT
+
+select * from capital_old where rowid between 3 and 5 order by dni;
+
+ update capital_old set telefono='4231221' where rowid=1;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ change the commit message. In order to do this you can use git commit --amend 
+
+git commit --amend -m “New commit message”
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+agregar un file q te olvidaste al commit :
+
+git add file6
+git commit --amend --no-edit
+--no-edit means that the commit message does not change.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+sudo grep -rnw '/' -e 'com.swacorp.aaf.mule.client.SWAFrameworkException'
+
+sudo find / -name "*com.swacorp.aaf.mule.client.SWAFrameworkException*"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para resetiar el bash
+source ~/.bashrc
+
+git commit
+git push origin HEAD
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ lsof -i:8081
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Dependencies have changed. If the changes are desired, commit the changed report file: ./docs/dependency-reports/dependencies-runtime.txt
+
+agregar todo al commit con git add y listo..
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+./gradlew build --refresh-dependencies
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+si esta el archivo .ipr hay q borrarlo.
+
+gradlew idea
+
+después abrir el archivo .ipr
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+find / -name 'libz*' -exec ls -l {} \;  2>/dev/null
+
+CCS.DOTCOM.MBP.EVNT.REQ.QUEUE
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+http://localhost:8094/v2/air-travel/docs/index.html
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+VISION MASTER:
+https://stash1-tools.swacorp.com/projects/DOTCOM/repos/vision-master/browse
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para ver q repos tienen jacoco:
+
+grep -lr --include=*.gradle jacocoTest
+
+grep -lr --include=*.json Loyalty
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+count amoung of files on a folder:
+
+find . -type f | sed -e 's/.*\.//' | sort | uniq -c | sort -n | grep -Ei '(tiff|bmp|jpeg|jpg|png|gif|java)$'
+
+ls -U | awk -F . '{print $NF}' | sort | uniq -c | awk '{print $2,$1}'
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+recuperar con facilidad un cierto trabajo desde la pila y continuar con él en una nueva rama.
+
+git stash branch testchanges
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+guardar cambios en un parch para poder aplicarlos:
+
+git diff --cached > /home/developer/Desktop/ParaMagaIsolationNotWorkingYet.patch
+
+git diff --cached > /home/developer/Desktop/ParaMockIsolationTestAncillaryManagement.patch
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev6.southwest.com -DstoryFilter=Early_Bird_Mode_Live_Purchase_Using_PayPal_Vision
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev6.southwest.com -DstoryFilter=Air_Booking_Happy_Path_Mode_Live
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev6.southwest.com -DstoryFilter=Vision_8550_EB_Anon_OW_INTL
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev6.southwest.com -DstoryFilter=Check_In_Air_Domestic_Oneway_Business_Happy_Path
+
+mvn clean install -Pjbehave-story-run -DstoryFilter=Check_In_Air_Domestic_Roundtrip_Multifare_Validation
+
+mvn clean install -Pjbehave-story-run -DstoryFilter=Air_Retrieve_Reservation_Contact_Information_Banner
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev6.southwest.com -DstoryFilter=Check_In_Air_Domestic_Roundtrip_Multifare_Validation
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev9.southwest.com -DstoryFilter=Vision_2774_CheckIn_SNR_Validate_Review_Confirmation_Page
+
+mvn clean install -Pjbehave-story-run  -DdomainToTest=https://southwest.dev6.southwest.com -DstoryFilter=Check_In_Validate_AOM_Banner_On_Confirmation
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+deploy spa with proxy to local chapi:
+
+npm run start-local-chapi
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+cambiar mensaje del commit :
+
+git commit --amend
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+https://api-reservation-management-int.dev3.swacorp.com/v1/reservation-management/diagnostics/details?show=PROPERTIES
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+api-air-booking-Version2 Copy.postman_collection.json
+
+alias clcsAutomated='newman run ~/Desktop/coleccionesDePostman/PnrGenerator.postman_collection.json -e ~/Desktop/coleccionesDePostman/dev1.postman_environment.json --delay-request 100  --ssl-client-cert ~/Downloads/certs_Native_App/dotcom-api-dev.crt --ssl-client-key ~/Downloads/certs_Native_App/dotcom-api-dev.key --ssl-client-passphrase password99 --insecure'
+
+newman run ~/Desktop/coleccionesDePostman/PnrGenerator.postman_collection.json -e ~/Desktop/coleccionesDePostman/dev1.postman_environment.json --delay-request 100  --ssl-client-cert ~/Downloads/certs_Native_App/dotcom-api-dev.crt --ssl-client-key ~/Downloads/certs_Native_App/dotcom-api-dev.key --ssl-client-passphrase password99 --insecure
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+verify toggles:
+
+newman run ~/Desktop/coleccionesDePostman/VerifyReservationManagement-Dev3.postman_collection.json -e ~/Desktop/coleccionesDePostman/dev1.postman_environment.json --delay-request 100  --ssl-client-cert ~/Downloads/certs_Native_App/dotcom-api-dev.crt --ssl-client-key ~/Downloads/certs_Native_App/dotcom-api-dev.key --ssl-client-passphrase password99 --insecure
+
+
+newman run ~/Desktop/coleccionesDePostman/AirBookingPurchasePostmanCollection.postman_collection.json -e ~/Desktop/coleccionesDePostman/Int_Dev_2.postman_environment.json --delay-request 100  --ssl-client-cert ~/Downloads/certs_Native_App/dotcom-api-dev.crt --ssl-client-key ~/Downloads/certs_Native_App/dotcom-api-dev.key --ssl-client-passphrase password99 --insecure
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+start jenkins on local pc:
+
+java -jar jenkins.war
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+levantar ui local apuntando a chapi deployada local:
+
+npm run start-local-chapi
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ mvn dependency:purge-local-repository clean install
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+~/work/api-air-checkin/src/main/environment/filesets/mountebank
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+https://jsoneditoronline.org/
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+redirection rules:
+
+https://jira-tools.swacorp.com/browse/LPFG-8819
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+no agregar node_modules a un repo:
+
+git rm -r --cached .
+git add .
+git commit -m "Clean up ignored files"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para conectarse a panther:
+
+172.18.61.149
+password: "roadru"
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Juan cuello 14:55
+ROdri como estas ?
+actualice unos promocodes q necesita performance para correr y les puse el mismo nombre
+igual mañana se van a activar, por q hay q ponerles fecha y les puse duración 2 años, los q estaban se habían vencido
+desde aca lo hice https://alice.dev1.southwest.com/alice/login.html
+user: e19648
+pass: 1Itest1111
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+git rebase -i 39fefd59a1541a4056181a29441730355e9c08e8
+
+del commit anterior al que quiero incluir.
+
+va a salir una lista de commits al 1ro le dejo pickup o p. A los otros los cambio por f o fixup = esto va combinar todos los otros con el 1ro.
+
+git push origin feature/ECOM-30307 --force
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+nohup "comando" &  que no dependa del hilo de la consola.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ver en los logs:
+
+grep --color 'LI4B3M' *.log
+
+
+grep --color 'KCGVFA' *.log
+
+KCGVFA
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+para ver si el diagnostics está andando:
+
+curl --fail -I localhost:14031/v1/reservation-management/diagnostics
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Conectarse con usuario admin de swa en los servidores para performance:
+sudo /bin/su - swfwadm
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Para dejar corriendo siempre el mountebank en un servidor:
+
+nohup ./mb&
+
+nohup ./mb --port=25023 &
+
+Conectarse a un server remoto y poder ver la interfaz grafica:
+ssh -X remoteserver
+Para acceder a windows desde terminal de ubuntu:
+
+/mnt/c
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+che les dejo una utilidad copada: si necesitan abrir algo en windows que instalaron por la consola de ubuntu la ruta desde windows para acceder es esta: C:\Users\juan.cuello\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs (edited) 
+
+
+
+Ping de markit Bas61814319
+
+
+Para instladores de desarrollo en la vdi>
+\\markit.partners\dfs\Global\DeveloperApplications\MOD_Apps
+
+
+Nombre de mi maquina virtual:
+
+
+Tiene que ser algo así: RIC1MODDVDSK061.INFO.CORP
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Volver un archivo a como estaba en determinado branch,
+Revertir cambios que no se quisieron hacer en determinado archivo.
+
+git checkout develop reports/report.json
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Resetear un branch de Git al estado del Remoto
+Osea, en en un ejemplo posta usando el master y origin como remote.
+
+git fetch origin master
+git reset --hard origin/master
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Ver la cantidad de archivos que cambiaron con git  “ ojo es en windows” 
+
+>git status | find /v /c ""
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Start xampp on mac:
+
+cd /Applications/XAMPP/xamppfiles
+SUDO ./xampp start
+O con uno solo con este:
+SUDO /Applications/XAMPP/xamppfiles/xampp start
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Filtrar emails no leídos en gmail:
+
+is:unread in:inbox
+
+////////
+
+---------------------------------------------------------------------------------------------------------------------------
+git checkout - = para volver al branch anterior q estaba !!! muy bueno
+---------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------
+
+para que tire las librerías indirectas go:
+
+go mod tidy -go=1.17
+
+---------------------------------------------------------------------------------------------------------------------------
+
+sudo chmod -R 777  /Users/juacuello/go
+---------------------------------------------------------------------------------------------------------------------------
+
+actualizar desde branch remoto
+
+git pull upstream {nombre del branch que queres pullear}
+
+---------------------------------------------------------------------------------------------------------------------------
+mismo comando que tira jenkins:
+go test -v ./... -covermode=atomic -coverprofile=/tmp/report/coverage.out -coverpkg=./... -count=1  -race -timeout=30m
+
+---------------------------------------------------------------------------------------------------------------------------
+CHMOD RECURSIVO
+chmod -R o+x /my/path/here
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Para limpiar la caché de los test de golang:
+go clean -testcache
+
+---------------------------------------------------------------------------------------------------------------------------
+Cuando un repo tira error de groovy:
+Se puede borrar toda la carpeta .m2   y volver a descargar todas las librerías
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Correr todos los test con repos en go:
+go test ./... -coverpkg=./... -race
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Correr lint en repos de go:
+golangci-lint run
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Todo esto para cuando trabajas con forks:
+
+actualizar con branch remoto pero no el tuyo:
+
+ git pull upstream master
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+clean cache go:
+go clean --modcache
+
+actualizar versión en repos de GO
+
+go mod tidy
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+python:
+
+che johnn y le tiraste un
+Run poetry cache clear --all .
+Delete your poetry.lock file
+Run poetry lock
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+por si queres volver a como esta en develop los permisos de una carpeta entera:
+
+find ruta/a/la/carpeta -type f -exec git checkout develop -- {} \;
+
+lo mismo pero por archivo:
+git checkout develop -- blabla.txt
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para q git no corra ningún hooks:
+
+git config --list --global
+
+git config --global core.hookspath /dev/null
+
+git config --global core.hookspath /Users/juacuello/.config/git/hooks/
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+see all the todos in the app
+
+grep -r "TODO" . 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+para tener un buen board de datadog, por api rest
+
+
+Apps
+
+Api’s consumidas
+Api’s que nos consumen
+
+Trafico saliente por dominio y app
+Dominios consumidos
+Top 10 de apps q nos consumen
+Top 10 de apps q consumimos
+Tiempo de respuesta según servicio
+
+Trafico
+Trafico total recibido por scope por app
+Trafico saliente por cliente
+Tiempos de respuesta “APLICACIÓN” p95, p99
+Trafico por scope
+Trafico recibido por scope por app
+Instance RPS x percentage accepted & rejected
+
+Status por servicio (scope write)
+Api call to aplicación 1. Dentro debe decir errores 200 - 400 - 499 - los q aparezcan
+Api call to aplicación 2
+Api call to aplicación 3
+
+Status for clients
+Call from aplicación 1 -> que scope llama y status
+Call from aplicación 2
+Etc
+
+Status
+Errores 4xx
+Request por HTTP status
+Errores 5xx
+
+Rate limit
+Request rejected x rate limit
+
+Infra
+Latency p95 - Scope Read
+Latency p95 - Scope Read 2
+Etc
+KVS container read quota
+Kvs uptime error rate
+Healthy vs Unhealthy replicas
+Avg RPM (Source: ELB/Envoy) -> por scope
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+

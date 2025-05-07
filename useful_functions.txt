@@ -1,0 +1,621 @@
+
+/**
+ * Autocompleta todos los pedidos de WooCommerce.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) { 
+    if ( ! $order_id ) {
+        return;
+    }
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+
+
+
+Cambiar en listado de productos, que el precio aparezca detrás de detalle corto:
+
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 20 );
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Cambiar Productos Agotado cuando no queda más stock de un producto:
+
+/**
+ * Code snippet to change WooCommerce Out of Stock text 
+ */ 
+
+add_filter( 'woocommerce_get_availability', 'change_out_of_stock_text_woocommerce', 1, 2);
+
+
+function change_out_of_stock_text_woocommerce( $availability, $product_to_check ) {
+    
+    // Change Out of Stock Text
+    if ( ! $product_to_check->is_in_stock() ) {
+		
+        $availability['availability'] = __('<a href="https://alquimistagin.com/formulario-lista-de-espera"> Producto Agotado Contactanos aqui </a>', 'woocommerce');
+		
+    }
+    return $availability;
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function to add a new button on “my account “ page 
+
+
+add_filter ( 'woocommerce_account_menu_items', 'misha_one_more_link' );
+function misha_one_more_link( $menu_links ){
+
+	// we will hook "anyuniquetext123" later
+	$new = array( 'eb-my-courses' => 'Mis Cursos' );
+
+	// or in case you need 2 links
+	// $new = array( 'link1' => 'Link 1', 'link2' => 'Link 2' );
+
+	// array_slice() is good when you want to add an element between the other ones
+	$menu_links = array_slice( $menu_links, 0, 1, true ) 
+	+ $new 
+	+ array_slice( $menu_links, 1, NULL, true );
+
+
+	return $menu_links;
+ 
+ 
+}
+
+add_filter( 'woocommerce_get_endpoint_url', 'misha_hook_endpoint', 10, 4 );
+function misha_hook_endpoint( $url, $endpoint, $value, $permalink ){
+ 
+	if( $endpoint === 'eb-my-courses' ) {
+ 
+		// ok, here is the place for your custom URL, it could be external
+		$url = "https://jacunabycaro.com/dashboard/enrolled-courses/";
+ 
+	}
+	return $url;
+ 
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * Autocompleta todos los pedidos de WooCommerce.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) { 
+    if ( ! $order_id ) {
+        return;
+    }
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+función para enviar email que funciona en letitgo.com
+
+
+   //Create a new PHPMailer instance
+   $mail = new PHPMailer();
+   //Tell PHPMailer to use SMTP
+   $mail->IsSMTP();
+   //Enable SMTP debugging
+   // 0 = off (for production use)
+   // 1 = client messages
+   // 2 = client and server messages
+   //$mail->SMTPDebug = 2;
+ 
+   //Ask for HTML-friendly debug output
+   //$mail->Debugoutput = 'html';
+ 
+   //Set the hostname of the mail server
+   $mail->Host = 'mail.letitgokids.com';
+ 
+   //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+   $mail->Port = 465;
+ 
+   //Set the encryption system to use - ssl (deprecated) or tls
+   $mail->SMTPSecure = 'ssl';
+ 
+   //Whether to use SMTP authentication
+   $mail->SMTPAuth = true;
+ 
+   //Username to use for SMTP authentication - use full email address for gmail
+   $mail->Username = "manialiaga@letitgokids.com";
+ 
+   //Password to use for SMTP authentication
+   $mail->Password = "Bas61814319";
+ 
+   $mail->setFrom('manialiaga@letitgokids.com', 'Letitgo');  //add sender email address.
+ 
+   $mail->addAddress('cuello.juanpablo@gmail.com', "development");  //Set who the message is to be sent to.
+   //Set the subject line
+   $mail->Subject = $response->subject;
+ 
+   //Read an HTML message body from an external file, convert referenced images to embedded,
+   //convert HTML into a basic plain-text alternative body
+   $mail->Body     = 'Name: '.$data['name'].'<br />Location: '.$data['location'].'<br />Email: '.$data['email'].'<br />Phone:'.$data['phone'].'<br />ailment: '.$data['ailment'].'<br />symptoms: '.$data['symptoms'];
+ 
+   //Replace the plain text body with one created manually
+   $mail->AltBody = 'This is a plain-text message body';
+ 
+   //Attach an image file
+   //$mail->addAttachment('images/phpmailer_mini.gif');
+   //$mail->SMTPAuth = true;
+   //send the message, check for errors
+   if (!$mail->send()) {
+       echo "Mailer Error: " . $mail->ErrorInfo;
+   } else {
+       echo "Message sent!";
+   }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+estilo css de los puntitos de colores de jacuna:
+
+li.li-1 {
+    background: url('https://jacunabycaro.com/wp-content/uploads/2021/10/Mesa-de-trabajo-15-1.png') no-repeat left top !important;
+    padding-left: 45px;
+    display: block;
+    min-height: 27px;
+    line-height: 27px;
+    margin-bottom: 30px;
+    font-weight: 200;
+}
+li.li-2 {
+    background: url('https://jacunabycaro.com/wp-content/uploads/2021/10/Mesa-de-trabajo-13-1.png') no-repeat left top !important;
+    padding-left: 45px;
+    display: block;
+    min-height: 27px;
+    line-height: 27px;
+    margin-bottom: 30px;
+    font-weight: 200;
+}
+li.li-3 {
+    background: url('https://jacunabycaro.com/wp-content/uploads/2021/10/Mesa-de-trabajo-16-1.png') no-repeat left top !important;
+    padding-left: 45px;
+    display: block;
+    min-height: 27px;
+    line-height: 27px;
+    margin-bottom: 30px;
+    font-weight: 200;
+}
+
+
+
+
+para ponerle css a menú o elementos:
+
+
+https://estudiosmedia.com.ar/poner-clases-css-a-elementos-del-menu-en-wordpress/
+
+
+
+
+
+Cambiar fondo con css de un desplegable:
+
+#nf-field-11 > option:nth-child(1){
+	background:#2f3132;
+}
+#nf-field-11 > option:nth-child(2){
+	background:#2f3132;
+}
+#nf-field-11 > option:nth-child(3){
+	background:#2f3132;
+}
+#nf-field-11 > option:nth-child(4){
+	background:#2f3132;
+}
+#nf-field-11 > option:nth-child(5){
+	background:#2f3132;
+}
+
+
+
+
+
+Función para redondeo cada 50 metros menos de 1000 metros
+ y luego de 1 km se habla de 1.2 km
+
+
+el valor de entrada es un long:
+
+public String getNearbyAgenciesDistance(Long distance, String shippingOptionType, Locale locale) {
+
+        Object[] data;
+
+        if (distance >= 990 & distance <= 999) distance = 990L;
+
+        if (distance <= 990) {
+            if (distance == 1L) {
+                if(shippingOptionType.equalsIgnoreCase("place")) {
+                    return I.tr("La más cercana está a 1 metro.", locale);
+                }
+                return I.tr("El más cercano está a 1 metro.", locale);
+            }
+            distance = roundNumbersEveryFifty(distance);
+            data = new Object[]{String.valueOf(distance)};
+            if(shippingOptionType.equalsIgnoreCase("place")) {
+                return I.tr("La más cercana está a {0} metros.", data, locale);
+            }
+            return I.tr("El más cercano está {0} metros.", data, locale);
+        }
+        //KM
+        double totalDistance;
+
+        if (distance == 1000L) {
+            if(shippingOptionType.equalsIgnoreCase("place")) {
+                return I.tr("La más cercana está a 1 kilómetro.", locale);
+            }
+            return I.tr("El más cercano está a 1 kilómetro.", locale);
+        }
+
+        totalDistance = distance * 0.001;
+        DecimalFormat format = new DecimalFormat("0.#");
+        data = new Object[]{String.valueOf(format.format(totalDistance))};
+        if(shippingOptionType.equalsIgnoreCase("place")) {
+            return I.tr("La más cercana está a {0} kilómetros.", data, locale);
+        }
+        return I.tr("El más cercano está a {0} kilómetros.", data, locale);
+    }
+
+    public static long roundNumbersEveryFifty(Long distance){
+        if (distance >= 0 && distance <= 49) distance = 50L;
+        if ((distance / 50) * 50 < distance)
+        {
+            return (distance / 50) * 50;
+        }
+        return distance;
+    }
+
+
+función para cambiar el “add-product” por ir a ver el detalle, y dentro de detalle no mata el “add-product”
+
+aca lo q se puede modificar es “View product”   por lo q uno quiera “Mas info”
+
+// Replace add to cart button by a linked button to the product in Shop and archives pages
+add_filter( 'woocommerce_loop_add_to_cart_link', 'replace_loop_add_to_cart_button', 10, 2 );
+function replace_loop_add_to_cart_button( $button, $product  ) {
+    // Not needed for variable products
+    if( $product->is_type( 'variable' ) ) return $button;
+
+    // Button text here
+    $button_text = __( "View product", "woocommerce" );
+
+    return '<a class="button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
+}
+
+
+
+
+
+función para agregar 3 productos de una al carrito:
+
+function woocommerce_maybe_add_multiple_products_to_cart() { // Make sure WC is installed, and add-to-cart qauery arg exists, and contains at least one comma. if ( ! class_exists( 'WC_Form_Handler' ) || empty( $_REQUEST['add-to-cart'] ) || false === strpos( $_REQUEST['add-to-cart'], ',' ) ) { return; } // Remove WooCommerce's hook, as it's useless (doesn't handle multiple products). remove_action( 'wp_loaded', array( 'WC_Form_Handler', 'add_to_cart_action' ), 20 ); $product_ids = explode( ',', $_REQUEST['add-to-cart'] ); $count = count( $product_ids ); $number = 0; foreach ( $product_ids as $product_id ) { if ( ++$number === $count ) { // Ok, final item, let's send it back to woocommerce's add_to_cart_action method for handling. $_REQUEST['add-to-cart'] = $product_id; return WC_Form_Handler::add_to_cart_action(); } $product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $product_id ) ); $was_added_to_cart = false; $adding_to_cart = wc_get_product( $product_id ); if ( ! $adding_to_cart ) { continue; } $add_to_cart_handler = apply_filters( 'woocommerce_add_to_cart_handler', $adding_to_cart->product_type, $adding_to_cart ); /* * Sorry.. if you want non-simple products, you're on your own. * * Related: WooCommerce has set the following methods as private: * WC_Form_Handler::add_to_cart_handler_variable(), * WC_Form_Handler::add_to_cart_handler_grouped(), * WC_Form_Handler::add_to_cart_handler_simple() * * Why you gotta be like that WooCommerce? */ if ( 'simple' !== $add_to_cart_handler ) { continue; } // For now, quantity applies to all products.. This could be changed easily enough, but I didn't need this feature. $quantity = empty( $_REQUEST['quantity'] ) ? 1 : wc_stock_amount( $_REQUEST['quantity'] ); $passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity ); if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity ) ) { wc_add_to_cart_message( array( $product_id => $quantity ), true ); } } } // Fire before the WC_Form_Handler::add_to_cart_action callback. add_action( 'wp_loaded', 'woocommerce_maybe_add_multiple_products_to_cart', 15 );
+
+
+
+
+Scroll específico en un wordpress:
+
+
+
+.menu-item-5030 >.sub-menu { 
+      height: 400px; 
+      overflow: scroll !important; 
+			width:auto;    
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+función para cambiar el valor dependiendo de lo que lee en el carrito
+
+
+<p class="brz-tp-heading4 brz-text-lg-center" style="color: white; font-weight: bold;"  id="demo"></p>
+
+<script>
+var text = document.getElementsByClassName("woocommerce-Price-currencySymbol")[0].innerHTML; 
+console.log(text)
+  var n = text.includes("USD");
+console.log(n)
+if(n){
+document.getElementById("demo").innerHTML ="U$D78";
+
+}else{
+document.getElementById("demo").innerHTML ="$6000";
+
+}
+</script>
+
+
+función para cambiar el símbolo del currency
+
+
+function patricks_currency_symbol( $currency_symbol, $currency ) {
+
+    switch( $currency ) {
+        case 'USD':
+            $currency_symbol = 'USD $';
+            break;
+    }
+    return $currency_symbol;
+}
+add_filter('woocommerce_currency_symbol', 'patricks_currency_symbol', 30, 2);
+
+
+
+
+
+función para lanzar popup en wordpress woocommerce cuando el usuario cambia de país:
+
+
+
+add_action( 'woocommerce_before_checkout_billing_form', 'bbloomer_echo_notice_shipping' );
+  
+function bbloomer_echo_notice_shipping() {
+echo '<div class="shipping-notice woocommerce-info" style="display:none">Por favor refresca la pagina si cambias de pais. Con este <a href=".">link</a>
+     </div>';
+}
+  
+// Part 2
+// Show or hide message based on billing country
+// The "display:none" hides it by default
+  
+add_action( 'woocommerce_after_checkout_form', 'bbloomer_show_notice_shipping' );
+  
+function bbloomer_show_notice_shipping(){
+     
+    ?>
+  
+    <script>
+        jQuery(document).ready(function($){
+  
+            // Set the country code (That will display the message)
+            var countryCode = 'US';
+        	var countryCodeUru = 'UY';
+            var countryCodeBra = 'BR';
+            var countryCodeChile = 'CL';
+            var countryCodeEspana = 'ES';
+  
+            $('select#billing_country').change(function(){
+  
+                selectedCountry = $('select#billing_country').val();
+                  
+                if( selectedCountry == countryCode || selectedCountry == countryCodeUru || selectedCountry == countryCodeBra
+				  || selectedCountry == countryCodeChile || selectedCountry == countryCodeEspana
+				  ){
+                    $('.shipping-notice').show();
+                }
+                else {
+                    $('.shipping-notice').hide();
+                }
+            });
+  
+        });
+    </script>
+  
+    <?php
+     
+}
+
+Funcion de Nordic:
+
+va en :
+
+
+ 
+   public_html
+  wp-content
+  plugins
+  woocommerce
+  templates
+  order
+ ↵
+
+
+* 		public_html  wp-content  plugins  woocommerce  templates  order 
+
+
+orders-details.php al final final
+
+
+
+FUNCIÖN:
+
+
+$myArray = (array) $order->billing;
+$queTipo = json_decode($order->billing, true);
+
+$first_name = $order->get_billing_first_name();
+$last_name = $order->get_billing_last_name();
+$phone = $order->get_billing_phone();
+$email = $order->get_billing_email();
+$customer_email = $order->get_billing_email();
+$adress_1 = $order->get_billing_address_1();
+$adress_2x = $order->get_billing_address_2();
+$postcode = $order->get_billing_postcode();
+$state = $order->get_billing_state();
+$country = $order->get_billing_country();
+$customer_phone = $order->get_billing_phone();
+
+$juanPablo = json_encode($order->get_meta_data());
+
+
+$iphone     = strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' );
+$android    = strpos($_SERVER['HTTP_USER_AGENT'], 'Android' );
+$berry      = strpos($_SERVER['HTTP_USER_AGENT'], 'BlackBerry' );
+$ipod       = strpos($_SERVER['HTTP_USER_AGENT'], 'iPod' );
+$ipad       = strpos($_SERVER['HTTP_USER_AGENT'], 'iPad' );
+$webOS      = strpos($_SERVER['HTTP_USER_AGENT'], 'webOS' );
+$silk       = strpos($_SERVER['HTTP_USER_AGENT'], 'Silk/' );
+$kindle     = strpos($_SERVER['HTTP_USER_AGENT'], 'Kindle' );
+$opera      = strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini' );
+$mobi       = strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mobi' );
+
+if ($iphone || $android || $berry || $ipod || $ipad || $webOS || $silk || $kindle || $opera || $mobi == true) {
+          $wa_base = 'api';  
+        } else {
+            if ( get_option('wa_order_whatsapp_base_url') == 'api') {
+               $wa_base_url = 'api';
+            } else {
+               $wa_base_url = 'web';
+            }
+           $wa_base = $wa_base_url;
+        }
+        $phonenumb = "+5493517187930";
+        $button_url = 'https://'.$wa_base.'.whatsapp.com/send?phone='.$phonenumb.'&text='.$message;
+
+        $message= urlencode("Hola, Te paso el resumen de mi pedido:\r\n\r\n");
+
+        foreach ( $order->get_items() as $item_id => $item ) {
+            $product_id   = $item->get_product_id(); //Get the product ID
+            $quantity     = $item->get_quantity(); //Get the product QTY
+            $product_name = $item->get_name(); //Get the product NAME
+            $quantity = $item->get_quantity();
+            $message .= urlencode("".$quantity."x - *".$product_name."*\r\n");
+                // get order item data (in an unprotected array)
+                $item_data = $item->get_data();
+
+                // get order item meta data (in an unprotected array)
+                $item_meta_data = $item->get_meta_data();
+
+                // get only All item meta data even hidden (in an unprotected array)
+                $formatted_meta_data = $item->get_formatted_meta_data( '_', true );
+                $array = json_decode(json_encode($formatted_meta_data), true);
+                $arrayx = array_values($array);
+                $arrayxxx = array_merge($array);
+                $result = array();
+            foreach( (array) $arrayxxx as $value) {
+                $product_meta = "";
+                $result[]=array($value["display_key"], wp_strip_all_tags($value["display_value"]));
+                foreach ($result as $key) {
+                    $result = array();
+                    $product_meta .= "     - ```".$key[0].":``` ```".$key[1]."```\r\n";
+                    $message.= urlencode("".$product_meta."");
+               }
+            }
+                $productsku = $item->get_product( $item );
+                $include_sku = get_option(sanitize_text_field('wa_order_option_custom_thank_you_include_sku'));
+                $sku = $productsku->get_sku();
+                $sku_label = __( 'SKU', 'woocommerce' );
+                if ( ! empty($sku) && $include_sku === 'yes' ) {
+                $message.= urlencode("     - ```".$sku_label.": ".$sku."```\r\n");
+                } else {
+                $message.= "";
+                }
+}
+
+
+
+$results = urlencode("\r\n\r\n Mi nombre es: ".$first_name." ".$last_name."\r\n\r\n Mi direccion es: ".$adress_1.$adress_2x."\r\n\r\n Me pueden contactar al: ".$phone."\r\n\r\n Forma de Pago: ".$order->payment_method_title."\r\n\r\n Voy a pagar: ".$order->total."\r\n\r\n Mi email es: ".$email."\r\n\r\n".$resultadoEnvio."\r\n\r\n Espero tu respuesta para confirmar mi pedido, fecha: ".date("d/m/Y"));
+$dobleSalto = urlencode("\r\n\r\n");
+$unSalto = urlencode("\r\n");
+
+$obj = json_encode($juanPablo);
+
+$obj = preg_replace('([^A-Za-z0-9 ])', '', $obj);
+
+
+$obj = str_replace("_billing_referencias"," REFERENCIAS: ",$obj);
+$obj = str_replace("billing_referencias"," REFERENCIAS: ",$obj);
+$obj = str_replace("_billing_formadeentrega"," FORMA DE ENTREGA: ",$obj);
+$obj = str_replace("_billing_esdepto"," ¿ ES DEPARTAMENTO ? : ",$obj);
+$obj = str_replace("billing_esdepto"," ¿ ES DEPARTAMENTO ? : ",$obj);
+$obj = str_replace("_billing_pisodepto"," PISO / DEPTO / TORRE: ",$obj);
+$obj = str_replace("billing_pisodepto"," PISO / DEPTO / TORRE: ",$obj);
+$obj = str_replace("billing_formadeentrega"," FORMA DE ENTREGA: ",$obj);
+$obj = str_replace("is_vat_exempt"," ",$obj);
+
+
+$obj = str_replace('billingformadeentrega',"*FORMA DE ENTREGA:*",$obj);
+$obj = str_replace('retiroentienda',"Retiro en tienda",$obj);
+$obj = str_replace('billingreferencias',"*REFERENCIAS:*",$obj);
+$obj = str_replace('billingesdepto',"*¿ ES DEPARTAMENTO ? :*",$obj);
+$obj = str_replace('billingpisodepto',"*PISO / DEPTO / TORRE:*",$obj);
+$obj = str_replace('isvatexempt no'," ",$obj);
+
+$obj = str_replace('REFERENCIAS:',"*REFERENCIAS:*",$obj);
+$obj = str_replace('FORMA DE ENTREGA:',"*FORMA DE ENTREGA:*",$obj);
+$obj = str_replace('¿ ES DEPARTAMENTO ?'," *¿ ES DEPARTAMENTO ? :*",$obj);
+$obj = str_replace('PISO / DEPTO / TORRE:',"*PISO / DEPTO / TORRE:*",$obj);
+$obj = str_replace('FORMA DE ENTREGA:'," *FORMA DE ENTREGA:*",$obj);
+$obj = str_replace("isvatexemptno"," ",$obj);
+
+
+$obj = str_replace("id"," ",$obj);
+$obj = str_replace("key"," ",$obj);
+$obj = str_replace("value"," ",$obj);
+$obj = str_replace('"'," ",$obj);
+
+$obj = str_replace('{'," ",$obj);
+$obj = str_replace('}'," ",$obj);
+$obj = str_replace('['," ",$obj);
+$obj = str_replace("]"," ",$obj);
+
+$array = json_decode($juanPablo, true);
+$cadena2 = " ";
+
+foreach ($array as $value) {
+   $cadena = "El nombre de la provincia es: '". $value['key'] ."', y su puntuación es: ". $value['value'] ."},";
+}
+
+foreach ($array as $value) {
+if($value['key'] == '_billing_referencias'  || $value['key'] == '_billing_formadeentrega' || $value['key'] == '_billing_esdepto' || $value['key'] == '_billing_pisodepto')
+   $cadena2 = $cadena2."'"."' ".$value['key']. $value['value'] ."";
+}
+
+$cadena2 = str_replace("_billing_referencias", $unSalto." REFERENCIAS: ",$cadena2);
+$cadena2 = str_replace("billing_referencias", $unSalto." REFERENCIAS: ",$cadena2);
+$cadena2 = str_replace("_billing_formadeentrega", $unSalto." FORMA DE ENTREGA: ",$cadena2);
+$cadena2 = str_replace("_billing_esdepto", $unSalto." ¿ ES DEPARTAMENTO ? : ",$cadena2);
+$cadena2 = str_replace("billing_esdepto", $unSalto." ¿ ES DEPARTAMENTO ? : ",$cadena2);
+$cadena2 = str_replace("_billing_pisodepto", $unSalto." PISO / DEPTO / TORRE: ",$cadena2);
+$cadena2 = str_replace("billing_pisodepto", $unSalto." PISO / DEPTO / TORRE: ",$cadena2);
+$cadena2 = str_replace("billing_formadeentrega", $unSalto." FORMA DE ENTREGA: ",$cadena2);
+$cadena2 = str_replace("is_vat_exempt",$unSalto." ",$cadena2);
+
+
+$cadena2 = str_replace('retiroentienda',"Retiro en tienda",$cadena2);
+$cadena2 = str_replace('isvatexempt no'," ",$cadena2);
+
+
+header("Location: https://".$wa_base.".whatsapp.com/send?phone=+5493517187930&text="
+.$message." ".$results.$dobleSalto.$cadena2);
+exit();
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Función para poner un banner en la /tienda de woocommerce para wordpress
+se puede usar con plugin "code snippets" funcionó en ozonizer . 
+
+add_action( 'woocommerce_archive_description', 'agregar_banner_despues_descripcion_tienda', 20 );
+function agregar_banner_despues_descripcion_tienda() {
+        echo '<div class="mi-banner" style="text-align: center;"><img src="https://ozonizer.com.ar/web/wp-content/uploads/2023/11/Logo.png" alt="Banner" style="max-width: 100%; height: auto; display: inline-block;"></div>';
+
+}
+
+
+
+
+
+
+
+
+
+
